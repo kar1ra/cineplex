@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="./img/kino.png" alt="" class="logo-img" />
+          <a href="#">Cineplex</a>
+        </div>
+        <div class="nav-buttons">
+          <form action="#" class="form-search">
+            <button class="form-search__submit">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  fill="#9d6f72"
+                  d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"
+                />
+              </svg>
+            </button>
+            <input
+              class="form-search__control"
+              type="search"
+              name="search"
+              required
+              value="Search"
+            />
+          </form>
+          <div class="buttons">
+            <button class="same-buttons">
+              <img src="./img/gift.png" alt="" class="same-buttons-img" />
+            </button>
+            <button class="same-buttons">
+              <img src="./img/prof.png" alt="" class="same-buttons-img" />
+            </button>
+
+
+            <button class="profil" onclick="openModal()"></button>
+            <div id="auth-modal" class="modal">
+              <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                
+                <div class="toggle-buttons">
+                  <button id="login-btn" onclick="showLoginForm()">Войти</button>
+                  <button id="register-btn" onclick="showRegisterForm()">Зарегистрироваться</button>
+                </div>
+            
+                <!-- Форма входа -->
+                <form id="login-form" class="auth-form" style="display: block;">
+                  <h2>Вход</h2>
+                  <input type="text" placeholder="Email" required />
+                  
+                  <div class="password-container">
+                    <input type="password" id="login-password" placeholder="Пароль" required />
+                    <button type="button" onclick="togglePasswordVisibility('login-password', 'toggleLoginPassword')" id="toggleLoginPassword">👁️</button>
+                  </div>
+            
+                  <button type="button" onclick="loginUser()">Войти</button>
+                </form>
+            
+
+                <form id="register-form" class="auth-form" style="display: none;">
+                  <h2>Регистрация</h2>
+                  <input type="text" placeholder="Имя" required />
+                  <input type="text" placeholder="Фамилия" required />
+                  <input type="text" placeholder="Email" required />
+                  
+                  <div class="password-container">
+                    <input type="password" id="register-password" placeholder="Пароль" required />
+                    <button type="button" onclick="togglePasswordVisibility('register-password', 'toggleRegisterPassword')" id="toggleRegisterPassword">👁️</button>
+                  </div>
+            
+                  <div class="password-container">
+                    <input type="password" id="register-confirm-password" placeholder="Повторите пароль" required />
+                    <button type="button" onclick="togglePasswordVisibility('register-confirm-password', 'toggleConfirmPassword')" id="toggleConfirmPassword">👁️</button>
+                  </div>
+            
+                  <button type="button" onclick="registerUser()">Зарегистрироваться</button>
+                  <p id="password-error" style="color: red; display: none;">Пароли не совпадают</p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <hr />
+    <section class="full">    
+      <section class="first">
+        <div class="fon">      <img src="./img/kino-seats.png" alt="" class="kino-seats" /></div>
+        <div class="news">      <h1>New movies</h1>
+
+      <div class="nav-buttons">
+        <form action="#" class="form-search">
+          <button class="form-search__submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                fill="#9d6f72"
+                d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"
+              />
+            </svg>
+          </button>
+          <input
+            class="form-search__control"
+            type="search"
+            name="search"
+            required
+            value="Search"
+          />
+        </form></div>
+      </section>
+      <section class="second">
+        <h1>Now Playing</h1>
+        <div class="films">
+            <div class="film">
+                <img src="./img/joker.webp" alt="" class="film-1">
+                <h2>Джокер: Безумие на двоих</h2>
+                <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+            <div class="film">
+              <img src="./img/joker.webp" alt="" class="film-1">
+              <h2>Джокер: Безумие на двоих</h2>
+              <p>драма • криминал</p>
+            </div>
+        </div>
+      </section>
+    </section>
+    <script src="javascript.js"></script>
+  </body>
+</html>
